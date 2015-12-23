@@ -63,7 +63,7 @@ object Shortener {
     if (!longUrl.startsWith("http://")){
       properUrl = "http://" + longUrl
     }
-    val shortUrl = makeShort(longUrl)  // Generate the shortUrl
+    val shortUrl = makeShort(properUrl)  // Generate the shortUrl
     new Shortened(0, properUrl, shortUrl)  // Create the full Shortened instance
   }
 
