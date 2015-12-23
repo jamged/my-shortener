@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/myshortener -Dhttp.port=${PORT} -Dplay.evolutions.db.default.autoApply=true

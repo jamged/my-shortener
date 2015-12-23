@@ -1,0 +1,16 @@
+@(message: Option[String])
+
+@main("MyShortener") {
+
+    <form action="@routes.Application.shorten()" method="post">
+        URL To Shorten: <input type="text" name="longUrl" />
+        <input type="submit" title="Go!" value="Submit" />
+    </form>
+    @if(message) {
+
+        <div class="message">
+
+            <h1> <b>@message </b></h1>
+        </div>
+    }
+}

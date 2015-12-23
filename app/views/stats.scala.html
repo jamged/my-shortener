@@ -1,0 +1,27 @@
+@(shortUrl: String, entries: Seq[models.Hit])
+
+
+@main("MyShortener") {
+
+    <h1> Here's your Hits for @shortUrl</h1>
+
+    <h2> Total hits: @entries.length</h2>
+
+
+    @for(ip <- entries.map( entry => entry.ip).toSet[String]) {
+        <fieldset>
+            <legend align="center"><h3>Hits from @ip</h3> </legend>
+            <table cellspacing="20" align="center">
+                <tr>
+                    <th>Timestamp</th>
+                </tr>
+                @for(hitTime <- entries.filter(_.ip == ip).map(entry => entry.timestamp)) {
+                    <tr>
+                        <td>@hitTime</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+
+}
