@@ -4,7 +4,7 @@ This application prompts the user for a URL and provides a shortened redirect li
 
 The application uses the Play web framework with Scala and Slick, and is configured for a PostgreSql database backend. The application is ready to clone and deploy on heroku!
 
-[Click Here](jamged.ml) for a running version (Forwarded through my jamged.ml domain for shorter URLs. Much cleaner looking than guarded-tor-3011.heroku.com).
+[Click Here](http://jamged.ml) for a running version (Forwarded through my jamged.ml domain for shorter URLs. Much cleaner looking than guarded-tor-3011.heroku.com).
 
 **Note:** The application is extremely barebones and no frills when it comes to http views. I may come back and make everything look a little prettier in the future, but my primary goal was functionality :)
 
