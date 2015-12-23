@@ -61,7 +61,7 @@ class Application extends Controller {
       if (foundEntry.isDefined) {
         // Obtain all hits fo this shortUrl, and pass them to stats view
         val entries = HitEntries.getAllByShortened(foundEntry.get) map { hits =>
-          Ok(views.html.stats(shortUrl, hits))
+          Ok(views.html.stats(request.host + "/" + shortUrl, hits))
         }
         Await.result(entries, Duration.Inf)
       }
