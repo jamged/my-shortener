@@ -71,6 +71,22 @@ object Shortener {
   def makeShort(longUrl:String): String = {
     var crc = new CRC32()
     crc.update(longUrl.getBytes())
-    java.lang.Long.toString(crc.getValue, 36)
+    make62(crc.getValue)  // convert to base 64 for shorter URL
+  }
+
+  def make62(long:Long): String = {
+    val CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEVGHIJKLMNOPKRSTUVWXYZ_-"
+    val BASE = 64
+
+    var ret:String = ""
+    var temp = long
+    var remain:Long = 0
+
+    while(temp > 0) {
+      remain = temp % BASE
+      ret += CHARS.charAt(remain.toInt)
+      temp /= BASE
+    }
+    ret
   }
 }
