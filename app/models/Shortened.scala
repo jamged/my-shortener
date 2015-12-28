@@ -60,7 +60,7 @@ object Shortener {
     var properUrl = longUrl
     val len = longUrl.length
     // Check our URL starts with 'http://' and prepend if it is missing
-    if (!longUrl.startsWith("http://")){
+    if ((!longUrl.startsWith("http://")) && (!longUrl.startsWith("https://"))){
       properUrl = "http://" + longUrl
     }
     val shortUrl = makeShort(properUrl)  // Generate the shortUrl

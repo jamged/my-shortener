@@ -17,7 +17,6 @@ class Application extends Controller {
 
   def index(message:Option[String] = None) = Action.async { implicit request =>
     ShortenedEntries.listAll() map { entries =>
-      println("entries(there are " + entries.length + "): " + entries)
       Ok(views.html.index(message))
     }
   }
@@ -28,7 +27,7 @@ class Application extends Controller {
       formData => {
         val newShortened = Shortener(formData)
         // Check DB for existing entry for this longURL, only add to the DB if we need to
-        ShortenedEntries.findByLong(formData) map { foundEntry =>
+        ShortenedEntries.findByShort(newShortened.shortUrl) map { foundEntry =>
           if (foundEntry.isEmpty) {
             ShortenedEntries.add(newShortened)
           }
